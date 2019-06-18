@@ -20,22 +20,58 @@
       {% csrf_token %}
       <div class="row">
         <div class="form-group">
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              {% if message.extra_tags == "title" %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
           <label for="form_title">Title</label>
           <input class="form-control" type="text" id="form_title" name="form_title" value={{show.title}}>
         </div>
       </div>
       <div class="row">
         <div class="form-group col">
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              {% if message.extra_tags == "network" %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
           <label for="form_network">Network</label>
           <input class="form-control" type="text" id="form_network" name="form_network" value={{show.network}}>
         </div>
         <div class="form-group col">
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              {% if message.extra_tags == "release_date" %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
           <label for="form_release_date">Release Date</label>
           <input class="form-control" type="date" name="form_release_date" id="form_release_date" value={{ release_date}}>
         </div>
       </div>
       <div class="row">
         <div class="form-group">
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              {% if message.extra_tags == "description" %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
           <label for="form_description">Description</label>
           <textarea name="form_description" id="form_description" cols=100% rows="3">{{show.description}}</textarea>
         </div>
